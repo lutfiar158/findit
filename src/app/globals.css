@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/* Tokens Cobalt Pop dari ekspor Stitch, tanpa mode gelap otomatis. */
+@theme inline {
+  --font-sans: var(--font-jakarta), sans-serif;
+  --color-primary: #0d3ae1;
+  --color-primary-container: #3758f9;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ebebff;
+  --color-primary-fixed: #dee0ff;
+  --color-on-primary-fixed: #00105b;
+  --color-primary-fixed-dim: #bac3ff;
+  --color-secondary: #ae3115;
+  --color-secondary-container: #fd6a49;
+  --color-secondary-fixed: #ffdad2;
+  --color-on-secondary-fixed: #3d0600;
+  --color-tertiary: #005f4a;
+  --color-tertiary-fixed: #a2f2d6;
+  --color-on-tertiary-fixed: #002118;
+  --color-surface: #fbf8ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f2ff;
+  --color-surface-container: #edecff;
+  --color-surface-container-high: #e6e6ff;
+  --color-surface-container-highest: #dfe0ff;
+  --color-surface-variant: #dfe0ff;
+  --color-on-surface: #171a32;
+  --color-on-surface-variant: #444656;
+  --color-outline: #747687;
+  --color-outline-variant: #c4c5d8;
+  --color-inverse-surface: #2c2f48;
+  --color-inverse-on-surface: #f1efff;
+  --color-error: #ba1a1a;
+  --color-brand-cobalt: #3758f9;
+  --color-brand-hover: #2945d4;
+  --color-brand-coral: #ff6b4a;
+  --color-brand-heading: #171b39;
+  --color-brand-secondary: #5b6680;
+  --color-brand-border: #dce2f2;
+  --color-brand-bg: #f7f8ff;
+  --text-body-md: 14px;
+  --text-body-md--line-height: 20px;
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 24px;
+  --text-body-sm: 12px;
+  --text-body-sm--line-height: 18px;
+  --text-label-md: 13px;
+  --text-label-md--line-height: 16px;
+  --text-label-sm: 11px;
+  --text-label-sm--line-height: 14px;
+  --text-title-md: 16px;
+  --text-title-md--line-height: 22px;
+  --text-headline-sm: 18px;
+  --text-headline-sm--line-height: 24px;
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+  --text-display-hero: 40px;
+  --text-display-hero--line-height: 48px;
+}
+
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("/fonts/symbols.woff2") format("woff2");
+}
+
+@layer base {
+  :root { color-scheme: light; }
+  body { background: var(--color-surface); color: var(--color-on-surface); font-family: var(--font-sans); font-size: 14px; }
+  button, select { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+  :focus-visible { outline: 3px solid var(--color-primary-container); outline-offset: 3px; }
+  ::selection { background: var(--color-primary-fixed); }
+}
+
+@layer components {
+  .page-container { @apply mx-auto w-full max-w-[1280px] px-4 md:px-8 lg:px-12; }
+  .button-primary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary-container px-6 text-label-md font-semibold text-white shadow-sm transition hover:bg-primary active:scale-[0.98]; }
+  .button-secondary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-white px-6 text-label-md font-semibold text-on-surface shadow-sm transition hover:bg-surface-container-low; }
+  .material-symbols-outlined { font-family: "Material Symbols Outlined"; font-weight: 400; font-style: normal; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; font-feature-settings: "liga"; -webkit-font-smoothing: antialiased; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0s !important; animation-duration: 0s !important; }
+}

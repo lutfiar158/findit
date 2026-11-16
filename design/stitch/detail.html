@@ -1,0 +1,475 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>FindIt — Smart Campus Lost &amp; Found</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary": "#005f4a", "surface-container-high": "#e6e6ff", "primary-fixed-dim": "#bac3ff", "on-surface-variant": "#444656", "surface-container": "#edecff", "on-tertiary": "#ffffff", "surface-tint": "#2549ec", "error": "#ba1a1a", "primary-container": "#3758f9", "outline-variant": "#c4c5d8", "inverse-surface": "#2c2f48", "tertiary-fixed-dim": "#87d6bb", "on-secondary-fixed": "#3d0600", "on-secondary-fixed-variant": "#8c1900", "error-container": "#ffdad6", "on-secondary-container": "#640f00", "surface": "#fbf8ff", "on-primary-fixed-variant": "#002fc8", "on-error": "#ffffff", "on-error-container": "#93000a", "surface-container-lowest": "#ffffff", "primary": "#0d3ae1", "inverse-on-surface": "#f1efff", "secondary": "#ae3115", "on-surface": "#171a32", "surface-variant": "#dfe0ff", "outline": "#747687", "surface-container-highest": "#dfe0ff", "background": "#fbf8ff", "surface-bright": "#fbf8ff", "surface-dim": "#d6d8f9", "secondary-fixed": "#ffdad2", "on-secondary": "#ffffff", "on-background": "#171a32", "tertiary-container": "#257861", "on-primary": "#ffffff", "primary-fixed": "#dee0ff", "secondary-fixed-dim": "#ffb4a3", "on-tertiary-fixed": "#002118", "on-tertiary-fixed-variant": "#00513f", "inverse-primary": "#bac3ff", "on-primary-container": "#ebebff", "on-primary-fixed": "#00105b", "on-tertiary-container": "#adfde0", "surface-container-low": "#f4f2ff", "tertiary-fixed": "#a2f2d6", "secondary-container": "#fd6a49" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-tablet": "2rem", "space-lg": "1.5rem", "gutter-tablet": "1.5rem", "gutter-desktop": "1.5rem", "space-xl": "2rem", "margin": "1rem", "space-sm": "0.5rem", "space-2xl": "3rem", "margin-desktop": "3rem", "gutter": "1rem", "space-xs": "0.25rem", "space-md": "1rem" }, "fontFamily": { "body-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "display-hero-mobile": ["Plus Jakarta Sans"], "display-hero": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"] }, "fontSize": { "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "display-hero-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "display-hero": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><a class="flex items-center gap-space-sm group" data-path="beranda" href="#"><img alt="FindIt Logo Mark" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCemd0O9iyZd0r2pu-dX4z7oPaM7p-vnTCYB6HOaIxhy3v8HC9eXehskBG7zwsJSljMfYrTlFf03KdipW5PuxNZA3GgsrPbivzg44DmTj1-tagZ_xWRokEbFVpa1ML57iOoXYrHGPwusH5TZjf4bRLD53_gOeq9o2ek2Iit8ChiixL39hZU-LeGRxWVPLhcrgCxc7ro1iVWGVnS0zdHWflc7UvjJCmZgpNjQ6f456M"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight group-hover:text-primary transition-colors">FindIt</span><span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-space-xs py-0.5 rounded-full">Kampus</span></div></a></div><nav class="hidden lg:flex items-center p-1.5 rounded-full bg-surface-container-low shadow-[0_1px_4px_rgba(0,0,0,0.02)]" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-full shadow-sm"><a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="beranda" href="#">Beranda</a><a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="jelajahi-barang" href="#">Jelajahi Barang</a><a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="lapor-barang" href="#">Lapor Barang</a><a class="relative px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-space-xs" data-path="laporan-saya" href="#"><span>Laporan Saya</span><span class="w-2 h-2 rounded-full bg-secondary-container"></span></a></nav><div class="flex items-center gap-space-sm sm:gap-space-md shrink-0"><button aria-label="Beralih mode tampilan" class="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><a class="hidden sm:inline-flex items-center justify-center h-12 px-space-md bg-primary-container text-on-primary font-label-md text-label-md rounded-xl hover:bg-primary transition-all active:scale-[0.98] shadow-sm" data-path="lapor-barang" href="#">Lapor Cepat</a><div class="flex items-center gap-space-sm pl-space-xs sm:pl-space-sm"><div class="relative flex items-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABMe3jBZdNYVDVCPgorISrfVqeNerAVFkxUq9EwPnoZvtu_l7J4mZDV-cnJMSdmrJuSGy00svAgEZn1vsrC4qr2G1pVov0iunl0rcrzFgYyLqj9nZb0d_LRFxFNmOC74cLLISM9eg3dyTUF14XgyQ6nkZX--ZQJPrWLbk7k7a8ssZMCJLmG4UvwDwL7x4ZBboE_CfQwyG3n1YkuiRNLrWq1-4inUtG6ivnrtyf-PE"><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary border-2 border-surface-container-lowest"></span></div><span class="hidden xl:block font-label-md text-label-md text-on-surface">Rian Pratama</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Content Canvas Container -->
+<div class="max-w-[1280px] w-full mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl flex flex-col gap-space-xl">
+<!-- 1. Breadcrumbs Nav -->
+<nav aria-label="Jalur Navigasi" class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm flex-wrap">
+<a class="hover:text-primary transition-colors flex items-center gap-1" data-path="beranda" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span>
+<span>Beranda</span>
+</a>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<a class="hover:text-primary transition-colors" data-path="jelajahi-barang" href="#">Jelajahi Barang</a>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Dompet</span>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<span class="font-label-md text-label-md text-on-surface truncate max-w-[240px] sm:max-w-none">Dompet Kulit Hitam Charles &amp; Keith</span>
+</nav>
+<!-- 2. Main Item Detail: 12-column layout (7 cols Left, 5 cols Right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT COLUMN: Item Visuals & Deep Attributes (7 Columns) -->
+<section class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Showcase Card with Heroic Graphic Canvas -->
+<div class="rounded-xl overflow-hidden bg-surface-container-lowest shadow-md flex flex-col">
+<!-- Stylized Visual Header -->
+<div class="relative w-full h-80 sm:h-96 overflow-hidden bg-gradient-to-br from-surface-container-high via-surface-container to-surface-variant flex items-center justify-center p-space-lg"><div class="absolute -top-12 -right-12 w-64 h-64 rounded-full bg-primary-fixed-dim/35 blur-2xl pointer-events-none"></div><div class="absolute -bottom-8 -left-8 w-56 h-56 rounded-full bg-secondary-fixed/40 blur-2xl pointer-events-none"></div><div class="absolute top-space-md left-space-md right-space-md z-20 flex items-center justify-between gap-space-sm flex-wrap pointer-events-none"><div class="flex items-center gap-space-xs flex-wrap pointer-events-auto"><div class="h-7 px-space-md rounded-full bg-secondary-fixed text-secondary flex items-center gap-1 font-label-sm text-label-sm shadow-sm"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span>HILANG</span></div><span class="h-7 px-space-md rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-on-surface font-label-sm text-label-sm shadow-sm flex items-center">Dompet &amp; Aksesoris</span></div><div class="pointer-events-auto shrink-0"><div class="h-7 px-space-sm rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center gap-1 font-label-sm text-label-sm shadow-sm"><span class="material-symbols-outlined text-[14px] text-tertiary">check_circle</span><span>Laporan Tervalidasi</span></div></div></div><div class="relative z-10 w-full h-full max-w-md rounded-xl overflow-hidden shadow-xl bg-surface-container-lowest group mt-6"><img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A chic black textured leather women's folded wallet with refined gold-toned zipper hardware and a small silver flower charm keychain, placed neatly on a natural wood study cubicle desk with soft sunlight cast through university library windows, photorealistic, clean campus atmosphere, 50mm lens photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1KhnU8hX09YK-GUAb8iBYld0KMZY_QU-KoN6x1lK_5iNDBE9Rdw1q_N4u2KbK7sARbbB_sTjPhOqqGuHiuk7KSFksL77fVYpeOaJMl1kHhDI2bBKNivPOw_IW00lQQk1vfbpiIw2fJr19X7HGWoUVxYnHEe0M7Npx2wwMiI41FuBOZSmBEchHL3SV6AcuidhHST8KnNEWWy_Oo6WhhRaQ3721h_ShBJyRUyejrsQ"><div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 via-transparent to-transparent pointer-events-none"></div><div class="absolute bottom-space-md left-space-md flex items-center gap-space-xs text-on-primary font-label-sm text-label-sm bg-inverse-surface/80 backdrop-blur-md px-space-sm py-1 rounded-full"><span class="material-symbols-outlined text-[14px]">photo_camera</span><span>Foto Referensi Model Serupa</span></div></div></div>
+<!-- Title and Metadata Summary Header -->
+<div class="p-space-xl flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">
+<span>ID Laporan: #FD-240588</span>
+<span>•</span>
+<span>Diperbarui 35 menit yang lalu</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+                Dompet Kulit Hitam Charles &amp; Keith
+              </h1>
+</div>
+<!-- 2x2 Structured Specifications Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-space-xs">
+<!-- Spec 1: Kategori -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center shrink-0 text-on-primary-fixed">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Kategori Barang</span>
+<span class="font-title-md text-title-md text-on-surface">Dompet Lipat Wanita</span>
+</div>
+</div>
+<!-- Spec 2: Warna -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0 text-on-surface">
+<span class="material-symbols-outlined text-[20px]">palette</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Warna &amp; Tekstur</span>
+<span class="font-title-md text-title-md text-on-surface">Hitam Pekat (Leather)</span>
+</div>
+</div>
+<!-- Spec 3: Lokasi -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Lokasi Terakhir</span>
+<span class="font-title-md text-title-md text-on-surface">Perpustakaan Pusat, Lt. 2</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Area Meja Belajar Sisi Timur</span>
+</div>
+</div>
+<!-- Spec 4: Waktu -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center shrink-0 text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Waktu Perkiraan Hilang</span>
+<span class="font-title-md text-title-md text-on-surface">Hari ini, 24 Mei 2025</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sekitar 10:30 WIB</span>
+</div>
+</div>
+</div>
+<!-- Detailed Description Block -->
+<div class="flex flex-col gap-space-sm pt-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Deskripsi Kronologi &amp; Isi</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Dompet lipat wanita warna hitam merk Charles &amp; Keith tertinggal di meja kubikal belajar lantai 2 perpustakaan pusat dekat jendela timur. Di dalam dompet terdapat Kartu Tanda Mahasiswa (KTM), KTP a.n Amanda Putri, kartu e-money Flazz saldo sekitar Rp50.000, serta foto polaroid kecil di slot transparan. Sangat penting terutama KTM untuk keperluan ujian akhir pekan ini. Bagi rekan mahasiswa yang menemukan mohon bantuannya.
+              </p>
+</div>
+<!-- Ciri-ciri Khusus (Verification hints) -->
+<div class="p-space-lg rounded-xl bg-primary-fixed/25 flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs text-primary font-title-md text-title-md"><span class="material-symbols-outlined text-[20px]">key_visualizer</span><span>Ciri-Ciri Khusus Pengenal Unik</span></div><ul class="flex flex-col gap-space-sm text-on-surface font-body-md text-body-md"><li class="flex items-start gap-space-xs leading-relaxed"><span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span><span>Ada gantungan kunci charm bunga perak kecil menggantung di ritsleting dompet.</span></li><li class="flex items-start gap-space-xs leading-relaxed"><span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span><span>Bagian sudut kanan bawah ada sedikit jahitan benang yang lepas sepanjang 5 milimeter.</span></li></ul><p class="font-body-sm text-body-sm text-on-surface-variant italic mt-space-xs">*Penemu disarankan mengonfirmasi detail ini sebelum penyerahan langsung.</p></div>
+<!-- Interactive Mini Campus Area Map Preview -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">map</span>
+<span>Peta Radius Area Kejadian</span>
+</span>
+<span class="font-label-sm text-label-sm text-primary">Zona Belajar Bebas Gedung B</span>
+</div>
+<div class="w-full h-44 rounded-xl bg-cover bg-center shadow-inner relative overflow-hidden" data-location="Universitas Indonesia Perpustakaan Pusat Crystal of Knowledge Depok" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8-yXriGJ0ialniPw8KPIihowxWus1EtZxSQoJhGWHfAI-dEKTdO5jQ09lP8dJKCF_fZ_2ptkeEgG2H9AvHECrja6SBMFqz2Er9DuYlqkoPLH1i7dAeSw6lmO2RLG1HbbjuNOAH3DM9zxEWQYSjUdS4FKqSOjW_tECnPnWH2vcnPF5ySUqkyodmyKuSNiUzcAL_3zfXQC-ztq40-1xpkqdOJS-59uK_IziQ08jxEc')">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent flex items-end p-space-md">
+<div class="bg-surface-container-lowest/95 backdrop-blur-md px-space-md py-space-xs rounded-xl shadow-md flex items-center gap-space-sm">
+<span class="w-3 h-3 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Titik Estimasi: Meja 42-B Perpustakaan</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: Action, Contact CTA & Safety Trust Card (5 Columns) -->
+<aside class="lg:col-span-5 flex flex-col gap-space-lg lg:sticky lg:top-24">
+<!-- Reporter Trust & Action Module -->
+<div class="p-space-xl rounded-xl bg-surface-container-lowest shadow-md flex flex-col gap-space-lg">
+<!-- Student Reporter Card -->
+<div class="flex items-start gap-space-md pb-space-md bg-surface-container-low/50 p-space-md rounded-xl">
+<div class="relative shrink-0">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="Warm friendly headshot portrait of an Indonesian female university student wearing a simple beige blouse with warm smile, campus library background, professional college ID style photography, soft depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjpMhpJ2BVmRWYeWEK3T_EFOQPFz3iF8tDb8qKQeS_KezDx9ZtbnauRWpgxav6tuWRntdj0n6v-USn7uL1Y2xf3QJk7cm1PznwDROwtOtC-Eo8wJ8D1UxZQlDjgN67DKM7fhinChoDScWTT20UU-EofwtoJxiQEcnBecSYp_zpt0xRwXN_aP5Pf4lkpQaIyoDWJ2YfIlTk3MU_z31gImpjSgTb-djl8L67qpjZjp8">
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-tertiary flex items-center justify-center text-on-tertiary">
+<span class="material-symbols-outlined text-[10px]">check</span>
+</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Amanda P.</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px] text-tertiary">verified</span>
+                  SSO Aktif
+                </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Mahasiswa Ilmu Komunikasi 2022</span>
+<div class="flex items-center gap-space-xs mt-space-xs font-label-sm text-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Biasanya membalas &lt; 15 menit</span>
+</div>
+</div>
+</div>
+<!-- Primary CTA Box -->
+<div class="flex flex-col gap-space-sm">
+<button class="w-full h-12 bg-primary-container text-on-primary font-label-md text-label-md rounded-xl hover:bg-primary transition-all active:scale-[0.98] shadow-md flex items-center justify-center gap-space-sm group" id="btnContactRequest" type="button">
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">mark_chat_unread</span>
+<span>Ajukan Permintaan Kontak</span>
+</button>
+<!-- Campus Secure Shield Explainer -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">shield</span>
+<p class="font-body-sm text-body-sm leading-relaxed">
+<strong class="text-on-surface font-label-md">Privasi terlindungi:</strong> Nomor WhatsApp &amp; ID Telegram baru dibuka setelah Amanda menyetujui verifikasi awal Anda.
+              </p>
+</div>
+</div>
+<!-- Secondary Actions Strip -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="h-10 px-space-sm rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors" id="btnShareWA" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary">share</span>
+<span>Bagikan Laporan</span>
+</button>
+<button class="h-10 px-space-sm rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors" id="btnCopyLink" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span id="copyLinkText">Salin Tautan</span>
+</button>
+</div>
+<button class="mt-space-xs text-center font-label-sm text-label-sm text-outline hover:text-error transition-colors flex items-center justify-center gap-1 py-1" type="button">
+<span class="material-symbols-outlined text-[16px]">flag</span>
+<span>Laporkan adanya indikasi penipuan / spam</span>
+</button>
+</div>
+</div>
+<!-- Campus Safety Card (Prosedur Serah Terima Aman) -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-secondary-container font-title-md text-title-md font-bold">
+<span class="material-symbols-outlined text-[22px] text-secondary">security</span>
+<span class="text-on-surface">Panduan Serah Terima Aman</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Untuk menjaga kenyamanan bersama, seluruh civitas akademika disarankan melakukan serah terima barang di pos resmi kampus:
+          </p>
+<div class="flex flex-col mt-1 gap-space-sm"><div class="flex items-start gap-space-xs text-on-surface font-label-md text-label-md py-0.5 leading-relaxed"><span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5">check_circle</span><span>Posko Satpam Gerbang Utama (24 Jam)</span></div><div class="flex items-start gap-space-xs text-on-surface font-label-md text-label-md py-0.5 leading-relaxed"><span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5">check_circle</span><span>Meja Sirkulasi Perpustakaan Lantai 1</span></div><div class="flex items-start gap-space-xs text-on-surface font-label-md text-label-md py-0.5 leading-relaxed"><span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5">check_circle</span><span>Lobi Dekanat Fakultas Terkait</span></div></div>
+<div class="mt-space-xs pt-space-xs font-body-sm text-body-sm text-outline">
+            ⚠️ Jangan pernah mentransfer imbalan tunai sebelum barang diperiksa secara fisik.
+          </div>
+</div>
+</aside>
+</div>
+<!-- 3. SMART MATCHING SECTION (Critical AI / Parametric Campus Feature) -->
+<section class="mt-space-xl flex flex-col gap-space-lg">
+<!-- Section Title & Dynamic Scoring Overview -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md p-space-lg rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+            Rekomendasi Barang Cocok (Smart Matching)
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Sistem cerdas membandingkan laporan <strong class="text-on-surface font-label-md">"Ditemukan"</strong> yang memiliki kesamaan kategori, warna, lokasi, dan rentang waktu.
+          </p>
+</div>
+<!-- Metric Confidence pill -->
+<div class="flex items-center gap-space-md p-space-md rounded-xl bg-surface-container-lowest shrink-0 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Hasil Pencocokan</span>
+<span class="font-title-md text-title-md text-primary font-bold">3 Laporan Relevan</span>
+</div>
+</div>
+</div>
+<!-- 3 Recommendation Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- CARD 1: 94% Match (Sangat Tinggi) -->
+<div class="flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest shadow-md hover:-translate-y-1 transition-all duration-300">
+<div class="relative h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A compact folded black leather women's wallet resting on the polished circulation counter of a modern university library, indoor campus lighting, sharp focus on the silver zipper detail, Indonesian campus setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8wdcWVSTsvNhvMs1qNj0pGaussLHexkz-oLua4uTXcIY0SMYcbGLKwrpJc5W9hUc85GcVcH6CNF7o-2Wt8m82xcY-NWj6yQc8471q_yzsSBX6o02X2uY7MyXZcC5lWVMUBEeAvZvwf6xKAGHShxsrSob1WUAOoeWFqrk6KQFX_1SvG0QZX5ggEfu2f1drfNfCOcmTRzWtsa9AMNqmvmfPYmtsz68ebImlhKaCaaA">
+<!-- Badges Bar -->
+<div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between">
+<!-- Status Found -->
+<span class="px-space-md py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Ditemukan</span>
+</span>
+<!-- Cobalt Score Pill -->
+<span class="px-space-md py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">stars</span>
+<span>94% Cocok</span>
+</span>
+</div>
+<div class="absolute bottom-space-xs right-space-xs px-2 py-0.5 rounded-lg bg-inverse-surface/80 text-inverse-on-surface font-label-sm text-label-sm backdrop-blur-sm">
+              45 mnt berselisih
+            </div>
+</div>
+<!-- Body Content -->
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold line-clamp-1">
+                Dompet Lipat Hitam Wanita
+              </h3>
+<div class="p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm flex flex-col gap-1">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[15px]">insights</span>
+<span>Parameter Kecocokan:</span>
+</div>
+<p class="leading-relaxed">
+                  Kategori sama (Dompet) • Warna sama (Hitam) • Lokasi sangat dekat (Perpustakaan Lt. 1 diserahkan ke Meja Sirkulasi) • Waktu berselisih 45 menit.
+                </p>
+</div>
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant pt-1">
+<span class="material-symbols-outlined text-[16px] text-outline">account_circle</span>
+<span>Penemu: <strong class="text-on-surface">Petugas Sirkulasi Perpus</strong></span>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full h-11 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-colors flex items-center justify-center gap-1 shadow-sm active:scale-[0.98]" type="button">
+<span>Bandingkan &amp; Hubungi Penemu</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- CARD 2: 82% Match (Tinggi) -->
+<div class="flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest shadow-md hover:-translate-y-1 transition-all duration-300">
+<div class="relative h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A dark charcoal or black pocket wallet found on a wooden bench outside lecture Hall Building A, soft morning daylight, student backpacks blurred in background, university campus atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBHnzNaF9ZOkOG1CNX_GJhpnOVt8AtEmG5tjSEArAqS-6lLDMNT7hO7glt3Jz2iMSjnyv3E1Lqwj_2QpiAvCNPVzks5d9eYIQVyV7OLQz0mWKqjtYsQwo-gnC7BxNTnDo2NRKIVq2UESvxgv3ciAAQK-FN6vCiV62d6x2rzCRBQHRZnNKDOynatsMwaIAl4JgrC-O1WCN9EBR2C9jfPwzhLcxj7wDTssNoqIOsZZw">
+<!-- Badges Bar -->
+<div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between">
+<!-- Status Found -->
+<span class="px-space-md py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Ditemukan</span>
+</span>
+<!-- Cobalt Score Pill -->
+<span class="px-space-md py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_fix_high</span>
+<span>82% Cocok</span>
+</span>
+</div>
+<div class="absolute bottom-space-xs right-space-xs px-2 py-0.5 rounded-lg bg-inverse-surface/80 text-inverse-on-surface font-label-sm text-label-sm backdrop-blur-sm">
+              1 jam berselisih
+            </div>
+</div>
+<!-- Body Content -->
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold line-clamp-1">
+                Dompet Kecil Warna Gelap
+              </h3>
+<div class="p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm flex flex-col gap-1">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[15px]">insights</span>
+<span>Parameter Kecocokan:</span>
+</div>
+<p class="leading-relaxed">
+                  Kategori sama • Lokasi Gedung A (bersebelahan dengan Perpus) • Ditemukan 1 jam setelah waktu laporan.
+                </p>
+</div>
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant pt-1">
+<span class="material-symbols-outlined text-[16px] text-outline">account_circle</span>
+<span>Penemu: <strong class="text-on-surface">Rizky (Teknik Industri '23)</strong></span>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full h-11 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1 active:scale-[0.98]" type="button">
+<span>Bandingkan &amp; Hubungi Penemu</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- CARD 3: 68% Match (Potensial) -->
+<div class="flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest shadow-md hover:-translate-y-1 transition-all duration-300">
+<div class="relative h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A slim black cardholder wallet with several student card slots visible, resting on a white food court table at a vibrant Indonesian campus library cafeteria, midday natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCVEQEpSuCQYAWDsB3BktoNponVhIPOn3sY8Coys3XLMS82cwrCctfaO5v23NkwN-23Oln7NqwlUAe6oXj9ayB8ViF2ffhOW-xrOpBSEOno-XDoH3A6tcpeQpjZ6f-4hlfX43lWnw1LXE_9a9rHkR1L-JWZn-wim5-W1wtPh8iDQLc6YPRDLUP1XMoWZYNA92tJEQIBenbpY6jZSKBe5mp3FVzPQASa3EjExrZ62I">
+<!-- Badges Bar -->
+<div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between">
+<!-- Status Found -->
+<span class="px-space-md py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Ditemukan</span>
+</span>
+<!-- Score Pill -->
+<span class="px-space-md py-1 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span>68% Cocok</span>
+</span>
+</div>
+<div class="absolute bottom-space-xs right-space-xs px-2 py-0.5 rounded-lg bg-inverse-surface/80 text-inverse-on-surface font-label-sm text-label-sm backdrop-blur-sm">
+              2 jam berselisih
+            </div>
+</div>
+<!-- Body Content -->
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold line-clamp-1">
+                Cardholder / Dompet Kartu Hitam
+              </h3>
+<div class="p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm flex flex-col gap-1">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[15px]">insights</span>
+<span>Parameter Kecocokan:</span>
+</div>
+<p class="leading-relaxed">
+                  Kategori sejenis (Cardholder) • Ditemukan di Kantin Perpustakaan Pusat • Warna dominan hitam.
+                </p>
+</div>
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant pt-1">
+<span class="material-symbols-outlined text-[16px] text-outline">account_circle</span>
+<span>Penemu: <strong class="text-on-surface">Kasir Kantin Perpus</strong></span>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full h-11 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1 active:scale-[0.98]" type="button">
+<span>Bandingkan &amp; Hubungi Penemu</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Algorithmic Disclaimer Footnote -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between gap-space-sm flex-wrap text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">info</span>
+<span>
+            Skor kecocokan dihitung dari kemiripan atribut: <span class="font-label-md text-on-surface">Kategori 35%</span>, <span class="font-label-md text-on-surface">Warna 25%</span>, <span class="font-label-md text-on-surface">Lokasi 25%</span>, <span class="font-label-md text-on-surface">Tanggal 15%</span> dan bukan merupakan bukti sah kepemilikan.
+          </span>
+</div>
+<a class="font-label-md text-label-md text-primary hover:underline flex items-center gap-0.5" href="#">
+          Pelajari Formula Matching
+          <span class="material-symbols-outlined text-[16px]">launch</span>
+</a>
+</div>
+</section>
+<!-- Modal Dialog Simulation for Contact Request (Hidden by default, triggered via JS) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden flex items-center justify-center p-margin" id="contactModal">
+<div class="w-full max-w-lg rounded-xl bg-surface-container-lowest p-space-xl shadow-xl flex flex-col gap-space-md animate-in fade-in zoom-in-95 duration-200">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">lock_person</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">Kirim Permintaan Kontak</h4>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-outline" id="btnCloseModal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Anda akan mengajukan izin kontak ke <strong>Amanda P.</strong> untuk berkoordinasi terkait dompet ini. Mohon sertakan pesan verifikasi singkat.
+        </p>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface" for="contactMessage">Pesan Singkat / Bukti Anda Menemukan</label>
+<textarea class="w-full p-space-sm rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary" id="contactMessage" placeholder="Halo Amanda, saya rasa dompetmu dititipkan ke staf sirkulasi perpus siang ini..." rows="3"></textarea>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container text-outline font-body-sm text-body-sm flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span>NPM dan Akun SSO Anda akan otomatis terlampir sebagai jaminan integritas.</span>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md h-10 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" id="btnCancelModal" type="button">
+            Batal
+          </button>
+<button class="px-space-lg h-10 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-colors flex items-center gap-1 shadow-sm" id="btnSendRequest" type="button">
+<span>Kirimkan ke Amanda</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive script for toast and interactive buttons -->
+<script>
+    (function initDetailInteractions() {
+      const btnContact = document.getElementById('btnContactRequest');
+      const modal = document.getElementById('contactModal');
+      const btnClose = document.getElementById('btnCloseModal');
+      const btnCancel = document.getElementById('btnCancelModal');
+      const btnSend = document.getElementById('btnSendRequest');
+      const btnCopy = document.getElementById('btnCopyLink');
+      const copyText = document.getElementById('copyLinkText');
+      const btnShareWA = document.getElementById('btnShareWA');
+
+      if (btnContact && modal) {
+        btnContact.addEventListener('click', () => {
+          modal.classList.remove('hidden');
+        });
+      }
+
+      function closeModal() {
+        if (modal) modal.classList.add('hidden');
+      }
+
+      if (btnClose) btnClose.addEventListener('click', closeModal);
+      if (btnCancel) btnCancel.addEventListener('click', closeModal);
+      if (btnSend) {
+        btnSend.addEventListener('click', () => {
+          btnSend.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Mengirim...</span>';
+          setTimeout(() => {
+            alert('Permintaan kontak terkirim! Notifikasi instan telah diteruskan ke email dan akun SSO Amanda.');
+            btnSend.innerHTML = '<span>Terkirim ✓</span>';
+            setTimeout(() => {
+              closeModal();
+              btnContact.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span><span>Permintaan Terkirim (Menunggu Persetujuan)</span>';
+              btnContact.classList.replace('bg-primary-container', 'bg-tertiary-fixed');
+              btnContact.classList.replace('text-on-primary', 'text-on-tertiary-fixed');
+              btnContact.disabled = true;
+            }, 600);
+          }, 800);
+        });
+      }
+
+      if (btnCopy && copyText) {
+        btnCopy.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).catch(() => {});
+          const original = copyText.textContent;
+          copyText.textContent = 'Tersalin!';
+          setTimeout(() => {
+            copyText.textContent = original;
+          }, 2000);
+        });
+      }
+
+      if (btnShareWA) {
+        btnShareWA.addEventListener('click', () => {
+          const shareUrl = encodeURIComponent(window.location.href);
+          const shareText = encodeURIComponent('Bantu cari: Dompet Kulit Hitam Charles & Keith hilang di Perpustakaan Pusat Lt 2 UI. Cek info selengkapnya di FindIt Kampus: ');
+          window.open('https://api.whatsapp.com/send?text=' + shareText + shareUrl, '_blank');
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_6px_rgba(0,0,0,0.02)] mt-space-2xl"><div class="max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-2xl"><div><div class="flex items-center gap-space-sm mb-space-md"><img alt="FindIt Logo Mark" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCemd0O9iyZd0r2pu-dX4z7oPaM7p-vnTCYB6HOaIxhy3v8HC9eXehskBG7zwsJSljMfYrTlFf03KdipW5PuxNZA3GgsrPbivzg44DmTj1-tagZ_xWRokEbFVpa1ML57iOoXYrHGPwusH5TZjf4bRLD53_gOeq9o2ek2Iit8ChiixL39hZU-LeGRxWVPLhcrgCxc7ro1iVWGVnS0zdHWflc7UvjJCmZgpNjQ6f456M"><span class="font-headline-sm text-headline-sm text-on-surface">FindIt</span></div><p class="font-body-md text-body-md text-on-surface-variant mb-space-lg leading-relaxed">Platform pencarian barang hilang pintar khusus mahasiswa kampus Indonesia.</p></div><div><div class="font-title-md text-title-md text-on-surface mb-space-md">Navigasi</div><ul class="flex flex-col gap-space-sm"><li class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Beranda</li><li class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Jelajahi Semua</li><li class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Lapor Kehilangan</li><li class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Lapor Penemuan</li></ul></div><div><div class="font-title-md text-title-md text-on-surface mb-space-md">Bantuan &amp; Panduan</div><ul class="flex flex-col gap-space-sm"><li class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Cara Klaim Barang</li><li class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Tips Keamanan Transaksi</li><li class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Pos Satpam Terdaftar</li><li class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Smart Matching FAQ</li></ul></div><div><div class="font-title-md text-title-md text-on-surface mb-space-md">Info Kampus</div><p class="font-body-md text-body-md text-on-surface-variant mb-space-md leading-relaxed">Terhubung dengan 14+ Posko Kampus &amp; Perpustakaan universitas mitra.</p></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md"><div class="font-body-sm text-body-sm text-on-surface-variant text-center sm:text-left">© 2025 FindIt Indonesia. Dibuat dengan kepedulian untuk mahasiswa kampus.</div><div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">language</span><span>Bahasa Indonesia (ID)</span></div></div></div></footer>
+
+
+
+</body></html>

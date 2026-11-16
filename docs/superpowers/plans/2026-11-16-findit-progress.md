@@ -1,0 +1,30 @@
+# SDD ledger — plan: docs/superpowers/plans/2026-11-16-findit-stitch.md
+
+- Approval: pengguna memilih FindIt, menyetujui rencana dan eksekusi langsung/native.
+- Ruling: gunakan direktori awal pada branch `feat/findit-stitch-ui` tanpa worktree/commit otomatis — repo belum mempunyai HEAD dan semua starter untracked; memindahkan workspace tidak membawa starter — perubahan tetap uncommitted untuk diperiksa pengguna.
+- Ruling: catat progres di dokumen ini, bukan skrip ledger berbasis commit — skrip mengasumsikan HEAD yang belum ada — rentang review diperiksa dari daftar file, bukan git diff.
+- Pre-flight Task 1 → Task 2: Item dan items dipakai detail; filterItems hanya dipakai browser katalog. Tidak ada konflik signature.
+- Pre-flight Task 1/2 → Task 3: tes Node native mendukung TypeScript pada Node 26 lokal; pemeriksaan TypeScript tetap melalui tsc/Next.
+- Task 1: in progress; lima HTML asli tersimpan di design/stitch, tanpa mengeksekusi skrip sumber.
+- Task 1: tes filter RED (modul belum ada) → GREEN 4/4; beranda/katalog dan shared UI terpasang, lint lulus.
+- Task 2: tes validasi RED (modul belum ada) → GREEN; seluruh suite 9/9, lint/typecheck lulus. Detail/404/login/register terpasang; pemeriksaan browser menyusul.
+- Task 3: build pertama gagal di /login karena searchParams di luar Suspense dengan cacheComponents/partialPrefetching aktif pada starter. Dokumentasi Next mengonfirmasi akar masalah yang sama juga berlaku pada katalog; batas Suspense diletakkan hanya di pembaca query, tidak menonaktifkan caching.
+- Ruling: font dan gambar contoh di-host lokal — unduh aset yang dirujuk sumber agar demo/build tidak bergantung CDN — tambah aset statis dan lisensi font, tanpa dependency runtime.
+- Task 3: build sesudah batas Suspense lulus; seluruh rute tersedia. Smoke HTTP lima rute utama dan query katalog menerima 200.
+- Ruling: gunakan UI notFound + noindex standar Next.js untuk ID tidak dikenal — streaming Cache Components dapat mengirim HTTP 200, dynamicParams=false tidak didukung konfigurasi ini — status HTTP 404 ketat tidak dijamin; tidak menambah proxy hanya untuk mengubah status, batasan didokumentasikan.
+- Browser: tes awal menemui timing navigasi dan route-announcer Next, diperbaiki dengan menunggu URL dan memilih alert dalam main.
+- Browser: tes regresi ID input unik gagal setelah navigasi login → register karena Next mempertahankan rute lama tersembunyi. Input/hint/feedback menggunakan React useId, bukan ID global yang tetap; akan diverifikasi ulang pada build baru.
+- Browser: ID input unik GREEN pada build baru. Tes skip link menemukan main tidak bisa menerima fokus; tabIndex=-1 ditambahkan ke keenam target main. Tes yang sama RED → GREEN, seluruh browser smoke 43/43.
+- Task 1: complete — tes filter 4/4, browser katalog/filter/navigasi/mobile lulus.
+- Task 2: complete — suite unit 9/9, browser validasi/password/demo/ID unik/detail/notFound lulus; tidak ada POST kredensial.
+- Task 3: pemeriksaan sebelum review lulus: npm test 9/9, npm run lint, npm run typecheck, npm run build. Browser smoke produksi 43/43, console 0 error/0 warning. Review independen akhir menyusul.
+- Final review independen: tidak ada Critical; Important berupa form native bisa mengirim password jika JavaScript mati. Tes no-JS baru RED di /login sebelum patch; fieldset dinonaktifkan sampai hydration, dengan noscript penjelas.
+- Final: Ruling: temuan reviewer minor tentang tes mobile terlalu dini dinaikkan menjadi Important test gap — halaman katalog mobile harus diperiksa setelah kartu tampil, bukan fallback — ditambahkan penantian input dan assertion sembilan kartu pada 375/768px; mengurangi risiko klaim verifikasi yang keliru.
+- Final: Ruling: backend/auth nyata/lapor/kontak/matching dan performa katalog besar tetap di luar lingkup — pengguna menyetujui demo sembilan barang tanpa backend — jangan gunakan sebagai layanan produksi.
+- Final: Ruling: adaptasi bukan jaminan pixel-perfect semua kontrol sumber Stitch — pertahankan layout/tema/komponen lima halaman, tanpa membangun fitur halaman lain — beberapa kontrol sumber hanya tersedia sebagai pemberitahuan demo atau tidak ditampilkan.
+- Final: Ruling: jumlah tab status adalah total katalog, bukan jumlah sesudah semua filter — jumlah hasil gabungan ditampilkan terpisah — label total tidak menunjukkan irisan filter.
+- Final: fixed pengiriman native sebelum hydration — tes no-JS RED → GREEN pada kedua form, fieldset disabled sampai handler siap; suite unit 9/9 dan browser 49/49.
+- Final: fixed test gap katalog mobile — tes menunggu textbox lalu memastikan sembilan kartu pada 375/768px sebelum pengukuran; kedua ukuran lulus dan screenshot katalog benar-benar berisi kartu.
+- Final verification: npm test 9/9; npm run lint exit 0; npm run typecheck exit 0; npm run build exit 0; browser smoke produksi 49/49; console 0 error/0 warning. Tidak ada deferred minor tersisa setelah penilaian ulang dan fix pass.
+- Ruling: branch dibiarkan apa adanya tanpa commit/merge/push/deploy — pengguna meminta berhenti dan melaporkan setelah integrasi — pengguna perlu menyimpan/mengintegrasikan perubahan Git sendiri.
+- Task 3: complete. Server/browser pengujian ditutup setelah verifikasi; tidak ada database/migrasi/deploy dijalankan. File environment pengguna tidak dibaca atau diubah.

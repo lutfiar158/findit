@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FindIt — Masuk ke Akun</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cobalt: '#3758F9',
+              hover: '#2945D4',
+              coral: '#FF6B4A',
+              midnight: '#10132B',
+              bg: '#F7F8FF',
+              card: '#FFFFFF',
+              heading: '#171B39',
+              secondary: '#5B6680',
+              border: '#DCE2F2',
+              error: '#B42318',
+              success: '#116B55'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#F7F8FF] font-sans text-brand-secondary min-h-screen flex flex-col justify-between antialiased selection:bg-[#3758F9]/10 selection:text-[#3758F9]">
+
+  <!-- Top bar preview switcher for interactive review -->
+  <header class="w-full bg-white/80 backdrop-blur border-b border-[#DCE2F2] py-2 px-4 sticky top-0 z-40 text-xs">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#3758F9]/10 text-[#3758F9] font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#3758F9]"></span>
+          FindIt Auth (Light Mode)
+        </span>
+        <span class="text-brand-secondary/60 hidden sm:inline">Rute: <code class="text-brand-heading font-medium">/login</code></span>
+      </div>
+      <div class="flex items-center gap-1.5 bg-[#F7F8FF] p-1 rounded-lg border border-[#DCE2F2]">
+        <button id="state-default-btn" onclick="setLoginState('default')" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-white text-brand-heading shadow-xs transition">Default</button>
+        <button id="state-error-btn" onclick="setLoginState('error')" class="px-2.5 py-1 rounded-md text-xs font-medium text-brand-secondary hover:text-brand-heading transition">Kredensial Salah</button>
+        <button id="state-validation-btn" onclick="setLoginState('validation')" class="px-2.5 py-1 rounded-md text-xs font-medium text-brand-secondary hover:text-brand-heading transition">Validasi Kosong</button>
+        <button id="state-loading-btn" onclick="setLoginState('loading')" class="px-2.5 py-1 rounded-md text-xs font-medium text-brand-secondary hover:text-brand-heading transition">Loading State</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Centered Layout -->
+  <main class="flex-1 flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+    <div class="w-full max-w-[440px]">
+      
+      <!-- Brand Logo Header Linking to Home -->
+      <div class="text-center mb-6">
+        <a href="#" class="inline-flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cobalt rounded-xl p-1 transition" title="Kembali ke Beranda FindIt">
+          <!-- FindIt Wordmark Logo -->
+          <div class="w-10 h-10 rounded-xl bg-brand-cobalt flex items-center justify-center text-white shadow-md shadow-brand-cobalt/20">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <div class="flex items-baseline gap-1 text-left">
+            <span class="text-2xl font-bold tracking-tight text-brand-heading">FindIt</span>
+            <span class="text-[11px] font-semibold tracking-wide uppercase px-1.5 py-0.5 rounded bg-brand-cobalt/10 text-brand-cobalt">Kampus</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Centered Card Container -->
+      <div class="bg-white rounded-2xl border border-brand-border shadow-sm p-7 sm:p-9 transition-all">
+        
+        <!-- Card Header -->
+        <div class="text-center mb-6">
+          <h1 class="text-2xl font-bold text-brand-heading tracking-tight mb-2">Selamat datang kembali!</h1>
+          <p class="text-sm text-brand-secondary leading-relaxed">Masuk untuk melanjutkan aktivitasmu di FindIt.</p>
+        </div>
+
+        <!-- Global Alert Feedback (for incorrect credentials or network warning) -->
+        <div id="credential-error-banner" class="hidden mb-5 p-3.5 rounded-xl bg-red-50 border border-red-200/80 flex items-start gap-2.5">
+          <svg class="w-4 h-4 text-brand-error mt-0.5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+          </svg>
+          <div class="text-xs text-brand-error leading-snug">
+            <span class="font-semibold">Email atau kata sandi tidak cocok.</span> Silakan periksa kembali atau gunakan tautan lupa password.
+          </div>
+        </div>
+
+        <!-- Form Elements -->
+        <form id="login-form" onsubmit="event.preventDefault(); handleSubmit();" novalidate class="space-y-4">
+          
+          <!-- Field 1: Email -->
+          <div>
+            <label for="email" class="block text-xs font-semibold text-brand-heading mb-1.5">
+              Email <span class="text-brand-coral">*</span>
+            </label>
+            <div class="relative">
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                placeholder="nama@email.com" 
+                class="w-full h-12 px-3.5 rounded-xl border border-brand-border bg-white text-sm text-brand-heading placeholder:text-brand-secondary/40 focus:outline-none focus:border-brand-cobalt focus:ring-4 focus:ring-brand-cobalt/10 transition"
+              >
+              <!-- Field Icon -->
+              <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-brand-secondary/40">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                </svg>
+              </div>
+            </div>
+            <p id="email-error-msg" class="hidden text-xs text-brand-error mt-1.5 flex items-center gap-1 font-medium">
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+              <span>Format email tidak valid atau belum diisi.</span>
+            </p>
+          </div>
+
+          <!-- Field 2: Password -->
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="password" class="block text-xs font-semibold text-brand-heading">
+                Password <span class="text-brand-coral">*</span>
+              </label>
+              <a href="#" class="text-xs font-medium text-brand-cobalt hover:text-brand-hover focus:outline-none focus-visible:underline transition">
+                Lupa password?
+              </a>
+            </div>
+            <div class="relative">
+              <input 
+                type="password" 
+                id="password" 
+                name="password"
+                placeholder="Masukkan password" 
+                class="w-full h-12 pl-3.5 pr-11 rounded-xl border border-brand-border bg-white text-sm text-brand-heading placeholder:text-brand-secondary/40 focus:outline-none focus:border-brand-cobalt focus:ring-4 focus:ring-brand-cobalt/10 transition"
+              >
+              <!-- Show/Hide Toggle Button -->
+              <button 
+                type="button" 
+                onclick="togglePasswordVisibility('password', 'eye-icon-login')" 
+                class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-brand-secondary/60 hover:text-brand-heading focus:outline-none transition"
+                aria-label="Tampilkan atau sembunyikan kata sandi"
+              >
+                <svg id="eye-icon-login" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </button>
+            </div>
+            <p id="password-error-msg" class="hidden text-xs text-brand-error mt-1.5 flex items-center gap-1 font-medium">
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+              <span>Kata sandi wajib diisi.</span>
+            </p>
+          </div>
+
+          <!-- Remember me checkbox -->
+          <div class="flex items-center pt-1 pb-1">
+            <label class="flex items-center gap-2.5 cursor-pointer text-xs text-brand-secondary select-none">
+              <input type="checkbox" checked class="w-4 h-4 rounded text-brand-cobalt border-brand-border focus:ring-brand-cobalt focus:ring-offset-0">
+              <span>Ingat sesi masuk di perangkat ini</span>
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            id="submit-btn" 
+            class="w-full h-12 bg-brand-cobalt hover:bg-brand-hover text-white font-semibold text-sm rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 focus:outline-none focus:ring-4 focus:ring-brand-cobalt/25"
+          >
+            <span id="btn-text">Masuk</span>
+            <svg id="btn-arrow" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+            <svg id="btn-spinner" class="hidden w-4 h-4 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Divider & Register Link -->
+        <div class="mt-6 pt-5 border-t border-brand-border text-center">
+          <p class="text-xs text-brand-secondary">
+            Belum punya akun? 
+            <a href="#" class="font-semibold text-brand-cobalt hover:text-brand-hover underline underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cobalt rounded px-0.5 transition">Daftar sekarang</a>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Campus Trust Footer / Micro copy -->
+      <div class="mt-6 text-center text-xs text-brand-secondary/70 flex items-center justify-center gap-2">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        <span>Akses aman terenkripsi untuk mahasiswa seluruh kampus Indonesia</span>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Simple Page Footer -->
+  <footer class="py-4 text-center text-xs text-brand-secondary/60 border-t border-brand-border/60">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p>&copy; 2025 FindIt Indonesia &bull; Smart Campus Lost &amp; Found</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-brand-heading transition">Panduan Keamanan</a>
+        <a href="#" class="hover:text-brand-heading transition">Ketentuan Layanan</a>
+        <a href="#" class="hover:text-brand-heading transition">Bantuan Posko</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function togglePasswordVisibility(inputId, iconId) {
+      const input = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18" />
+        `;
+      } else {
+        input.type = 'password';
+        icon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        `;
+      }
+    }
+
+    function setLoginState(state) {
+      const banner = document.getElementById('credential-error-banner');
+      const emailInput = document.getElementById('email');
+      const emailError = document.getElementById('email-error-msg');
+      const passwordInput = document.getElementById('password');
+      const passwordError = document.getElementById('password-error-msg');
+      const submitBtn = document.getElementById('submit-btn');
+      const btnText = document.getElementById('btn-text');
+      const btnArrow = document.getElementById('btn-arrow');
+      const btnSpinner = document.getElementById('btn-spinner');
+
+      // Reset
+      banner.classList.add('hidden');
+      emailError.classList.add('hidden');
+      passwordError.classList.add('hidden');
+      emailInput.classList.remove('border-brand-error', 'focus:border-brand-error', 'focus:ring-red-100');
+      passwordInput.classList.remove('border-brand-error', 'focus:border-brand-error', 'focus:ring-red-100');
+      emailInput.classList.add('border-brand-border');
+      passwordInput.classList.add('border-brand-border');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+      btnText.textContent = 'Masuk';
+      btnArrow.classList.remove('hidden');
+      btnSpinner.classList.add('hidden');
+
+      // Update switcher buttons UI
+      ['default', 'error', 'validation', 'loading'].forEach(st => {
+        const btn = document.getElementById(`state-${st}-btn`);
+        if (st === state) {
+          btn.className = 'px-2.5 py-1 rounded-md text-xs font-semibold bg-white text-brand-heading shadow-xs transition';
+        } else {
+          btn.className = 'px-2.5 py-1 rounded-md text-xs font-medium text-brand-secondary hover:text-brand-heading transition';
+        }
+      });
+
+      if (state === 'default') {
+        emailInput.value = 'rian.pratama@mhs.ui.ac.id';
+        passwordInput.value = '••••••••••••';
+      } else if (state === 'error') {
+        emailInput.value = 'rian.pratama@mhs.ui.ac.id';
+        passwordInput.value = 'katasandisalah123';
+        banner.classList.remove('hidden');
+        passwordInput.classList.remove('border-brand-border');
+        passwordInput.classList.add('border-brand-error', 'focus:border-brand-error', 'focus:ring-red-100');
+      } else if (state === 'validation') {
+        emailInput.value = '';
+        passwordInput.value = '';
+        emailError.classList.remove('hidden');
+        passwordError.classList.remove('hidden');
+        emailInput.classList.remove('border-brand-border');
+        emailInput.classList.add('border-brand-error');
+        passwordInput.classList.remove('border-brand-border');
+        passwordInput.classList.add('border-brand-error');
+      } else if (state === 'loading') {
+        emailInput.value = 'rian.pratama@mhs.ui.ac.id';
+        passwordInput.value = '••••••••••••';
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        btnText.textContent = 'Memverifikasi...';
+        btnArrow.classList.add('hidden');
+        btnSpinner.classList.remove('hidden');
+      }
+    }
+
+    function handleSubmit() {
+      setLoginState('loading');
+      setTimeout(() => {
+        setLoginState('default');
+      }, 1500);
+    }
+
+    // Default init
+    window.addEventListener('DOMContentLoaded', () => {
+      setLoginState('default');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FindIt — Pendaftaran Akun Mahasiswa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cobalt: '#3758F9',
+              hover: '#2945D4',
+              coral: '#FF6B4A',
+              midnight: '#10132B',
+              bg: '#F7F8FF',
+              card: '#FFFFFF',
+              heading: '#171B39',
+              secondary: '#5B6680',
+              border: '#DCE2F2',
+              error: '#B42318',
+              success: '#116B55'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#F7F8FF] font-sans text-brand-secondary min-h-screen flex flex-col justify-between antialiased selection:bg-[#3758F9]/10 selection:text-[#3758F9]">
+
+  <!-- Top Preview Switcher Bar -->
+  <header class="w-full bg-white/80 backdrop-blur border-b border-[#DCE2F2] py-2 px-4 sticky top-0 z-40 text-xs">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#3758F9]/10 text-[#3758F9] font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#3758F9]"></span>
+          FindIt Auth (Light Mode)
+        </span>
+        <span class="text-brand-secondary/60 hidden sm:inline">Rute: <code class="text-brand-heading font-medium">/register</code></span>
+      </div>
+      <div class="flex items-center gap-1.5 bg-[#F7F8FF] p-1 rounded-lg border border-[#DCE2F2]">
+        <button id="reg-state-default-btn" onclick="setRegisterState('default')" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-white text-brand-heading shadow-xs transition">Default Form</button>
+        <button id="reg-state-mismatch-btn" onclick="setRegisterState('mismatch')" class="px-2.5 py-1 rounded-md text-xs font-medium text-brand-secondary hover:text-brand-heading transition">Password Tidak Cocok</button>
+        <button id="reg-state-empty-btn" onclick="setRegisterState('empty')" class="px-2.5 py-1 rounded-md text-xs font-medium text-brand-secondary hover:text-brand-heading transition">Validasi Kosong</button>
+        <button id="reg-state-loading-btn" onclick="setRegisterState('loading')" class="px-2.5 py-1 rounded-md text-xs font-medium text-brand-secondary hover:text-brand-heading transition">Loading State</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Centered Layout -->
+  <main class="flex-1 flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+    <div class="w-full max-w-[440px]">
+      
+      <!-- Brand Logo Header Linking to Home -->
+      <div class="text-center mb-6">
+        <a href="#" class="inline-flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cobalt rounded-xl p-1 transition" title="Kembali ke Beranda FindIt">
+          <div class="w-10 h-10 rounded-xl bg-brand-cobalt flex items-center justify-center text-white shadow-md shadow-brand-cobalt/20">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <div class="flex items-baseline gap-1 text-left">
+            <span class="text-2xl font-bold tracking-tight text-brand-heading">FindIt</span>
+            <span class="text-[11px] font-semibold tracking-wide uppercase px-1.5 py-0.5 rounded bg-brand-cobalt/10 text-brand-cobalt">Kampus</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Centered Card Container -->
+      <div class="bg-white rounded-2xl border border-brand-border shadow-sm p-7 sm:p-9 transition-all">
+        
+        <!-- Card Header -->
+        <div class="text-center mb-6">
+          <h1 class="text-2xl font-bold text-brand-heading tracking-tight mb-2">Yuk, gabung FindIt!</h1>
+          <p class="text-sm text-brand-secondary leading-relaxed">Buat akun untuk mulai mencari dan melaporkan barang di kampus.</p>
+        </div>
+
+        <!-- Form Elements -->
+        <form id="register-form" onsubmit="event.preventDefault(); handleRegisterSubmit();" novalidate class="space-y-4">
+          
+          <!-- Field 1: Nama Tampilan -->
+          <div>
+            <label for="reg-name" class="block text-xs font-semibold text-brand-heading mb-1.5">
+              Nama tampilan <span class="text-brand-coral">*</span>
+            </label>
+            <div class="relative">
+              <input 
+                type="text" 
+                id="reg-name" 
+                name="name"
+                placeholder="Nama yang ingin ditampilkan" 
+                class="w-full h-12 px-3.5 rounded-xl border border-brand-border bg-white text-sm text-brand-heading placeholder:text-brand-secondary/40 focus:outline-none focus:border-brand-cobalt focus:ring-4 focus:ring-brand-cobalt/10 transition"
+              >
+              <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-brand-secondary/40">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+            </div>
+            <p id="reg-name-error" class="hidden text-xs text-brand-error mt-1.5 flex items-center gap-1 font-medium">
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+              <span>Nama tampilan wajib diisi.</span>
+            </p>
+          </div>
+
+          <!-- Field 2: Email -->
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="reg-email" class="block text-xs font-semibold text-brand-heading">
+                Email <span class="text-brand-coral">*</span>
+              </label>
+              <span class="text-[11px] text-brand-secondary/70">Email pribadi / kampus</span>
+            </div>
+            <div class="relative">
+              <input 
+                type="email" 
+                id="reg-email" 
+                name="email"
+                placeholder="nama@email.com" 
+                class="w-full h-12 px-3.5 rounded-xl border border-brand-border bg-white text-sm text-brand-heading placeholder:text-brand-secondary/40 focus:outline-none focus:border-brand-cobalt focus:ring-4 focus:ring-brand-cobalt/10 transition"
+              >
+              <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-brand-secondary/40">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                </svg>
+              </div>
+            </div>
+            <p id="reg-email-error" class="hidden text-xs text-brand-error mt-1.5 flex items-center gap-1 font-medium">
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+              <span>Gunakan format email valid (contoh: nama@kampus.ac.id).</span>
+            </p>
+          </div>
+
+          <!-- Field 3: Password -->
+          <div>
+            <label for="reg-password" class="block text-xs font-semibold text-brand-heading mb-1.5">
+              Password <span class="text-brand-coral">*</span>
+            </label>
+            <div class="relative">
+              <input 
+                type="password" 
+                id="reg-password" 
+                name="password"
+                placeholder="Buat password" 
+                class="w-full h-12 pl-3.5 pr-11 rounded-xl border border-brand-border bg-white text-sm text-brand-heading placeholder:text-brand-secondary/40 focus:outline-none focus:border-brand-cobalt focus:ring-4 focus:ring-brand-cobalt/10 transition"
+              >
+              <button 
+                type="button" 
+                onclick="togglePasswordVisibility('reg-password', 'reg-eye-1')" 
+                class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-brand-secondary/60 hover:text-brand-heading focus:outline-none transition"
+                aria-label="Tampilkan atau sembunyikan kata sandi"
+              >
+                <svg id="reg-eye-1" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </button>
+            </div>
+            <div class="flex items-center justify-between mt-1">
+              <p class="text-[11px] text-brand-secondary/70">Minimal 8 karakter</p>
+              <p id="reg-password-error" class="hidden text-xs text-brand-error font-medium">Minimal 8 karakter.</p>
+            </div>
+          </div>
+
+          <!-- Field 4: Konfirmasi Password -->
+          <div>
+            <label for="reg-password-confirm" class="block text-xs font-semibold text-brand-heading mb-1.5">
+              Konfirmasi password <span class="text-brand-coral">*</span>
+            </label>
+            <div class="relative">
+              <input 
+                type="password" 
+                id="reg-password-confirm" 
+                name="password_confirm"
+                placeholder="Ulangi password" 
+                class="w-full h-12 pl-3.5 pr-11 rounded-xl border border-brand-border bg-white text-sm text-brand-heading placeholder:text-brand-secondary/40 focus:outline-none focus:border-brand-cobalt focus:ring-4 focus:ring-brand-cobalt/10 transition"
+              >
+              <button 
+                type="button" 
+                onclick="togglePasswordVisibility('reg-password-confirm', 'reg-eye-2')" 
+                class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-brand-secondary/60 hover:text-brand-heading focus:outline-none transition"
+                aria-label="Tampilkan atau sembunyikan konfirmasi kata sandi"
+              >
+                <svg id="reg-eye-2" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </button>
+            </div>
+            <p id="reg-confirm-error" class="hidden text-xs text-brand-error mt-1.5 flex items-center gap-1 font-medium">
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+              <span>Konfirmasi password tidak cocok dengan password di atas.</span>
+            </p>
+          </div>
+
+          <!-- Terms acceptance note -->
+          <p class="text-[11px] text-brand-secondary/80 leading-relaxed pt-1">
+            Dengan mendaftar, kamu menyetujui <a href="#" class="text-brand-cobalt hover:underline">Ketentuan Layanan</a> serta komitmen menjaga kejujuran informasi serah terima barang kampus.
+          </p>
+
+          <!-- Primary Submit Button -->
+          <button 
+            type="submit" 
+            id="reg-submit-btn" 
+            class="w-full h-12 bg-brand-cobalt hover:bg-brand-hover text-white font-semibold text-sm rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 focus:outline-none focus:ring-4 focus:ring-brand-cobalt/25 mt-2"
+          >
+            <span id="reg-btn-text">Buat Akun</span>
+            <svg id="reg-btn-arrow" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+            <svg id="reg-btn-spinner" class="hidden w-4 h-4 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Divider & Login Link -->
+        <div class="mt-6 pt-5 border-t border-brand-border text-center">
+          <p class="text-xs text-brand-secondary">
+            Sudah punya akun? 
+            <a href="#" class="font-semibold text-brand-cobalt hover:text-brand-hover underline underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cobalt rounded px-0.5 transition">Masuk</a>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Subtext / Verification hint -->
+      <div class="mt-6 text-center text-xs text-brand-secondary/70 flex items-center justify-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-brand-cobalt" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        <span>Verifikasi email diperlukan setelah pendaftaran selesai</span>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Simple Page Footer -->
+  <footer class="py-4 text-center text-xs text-brand-secondary/60 border-t border-brand-border/60">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p>&copy; 2025 FindIt Indonesia &bull; Smart Campus Lost &amp; Found</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-brand-heading transition">Panduan Keamanan</a>
+        <a href="#" class="hover:text-brand-heading transition">Ketentuan Layanan</a>
+        <a href="#" class="hover:text-brand-heading transition">Bantuan Posko</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function togglePasswordVisibility(inputId, iconId) {
+      const input = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18" />
+        `;
+      } else {
+        input.type = 'password';
+        icon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        `;
+      }
+    }
+
+    function setRegisterState(state) {
+      const nameInp = document.getElementById('reg-name');
+      const emailInp = document.getElementById('reg-email');
+      const passInp = document.getElementById('reg-password');
+      const confirmInp = document.getElementById('reg-password-confirm');
+
+      const nameErr = document.getElementById('reg-name-error');
+      const emailErr = document.getElementById('reg-email-error');
+      const passErr = document.getElementById('reg-password-error');
+      const confirmErr = document.getElementById('reg-confirm-error');
+
+      const submitBtn = document.getElementById('reg-submit-btn');
+      const btnText = document.getElementById('reg-btn-text');
+      const btnArrow = document.getElementById('reg-btn-arrow');
+      const btnSpinner = document.getElementById('reg-btn-spinner');
+
+      // Clear errors
+      [nameErr, emailErr, passErr, confirmErr].forEach(el => el.classList.add('hidden'));
+      [nameInp, emailInp, passInp, confirmInp].forEach(el => {
+        el.classList.remove('border-brand-error', 'focus:border-brand-error', 'focus:ring-red-100');
+        el.classList.add('border-brand-border');
+      });
+
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+      btnText.textContent = 'Buat Akun';
+      btnArrow.classList.remove('hidden');
+      btnSpinner.classList.add('hidden');
+
+      // Update switcher buttons UI
+      ['default', 'mismatch', 'empty', 'loading'].forEach(st => {
+        const btn = document.getElementById(`reg-state-${st}-btn`);
+        if (st === state) {
+          btn.className = 'px-2.5 py-1 rounded-md text-xs font-semibold bg-white text-brand-heading shadow-xs transition';
+        } else {
+          btn.className = 'px-2.5 py-1 rounded-md text-xs font-medium text-brand-secondary hover:text-brand-heading transition';
+        }
+      });
+
+      if (state === 'default') {
+        nameInp.value = 'Rian Pratama';
+        emailInp.value = 'rian.pratama@mhs.ui.ac.id';
+        passInp.value = 'SandiKampus2025';
+        confirmInp.value = 'SandiKampus2025';
+      } else if (state === 'mismatch') {
+        nameInp.value = 'Rian Pratama';
+        emailInp.value = 'rian.pratama@mhs.ui.ac.id';
+        passInp.value = 'SandiKampus2025';
+        confirmInp.value = 'SandiBeda1234';
+        confirmErr.classList.remove('hidden');
+        confirmInp.classList.remove('border-brand-border');
+        confirmInp.classList.add('border-brand-error');
+      } else if (state === 'empty') {
+        nameInp.value = '';
+        emailInp.value = 'email-tidak-valid';
+        passInp.value = '123';
+        confirmInp.value = '';
+
+        nameErr.classList.remove('hidden');
+        emailErr.classList.remove('hidden');
+        passErr.classList.remove('hidden');
+        nameInp.classList.add('border-brand-error');
+        emailInp.classList.add('border-brand-error');
+        passInp.classList.add('border-brand-error');
+      } else if (state === 'loading') {
+        nameInp.value = 'Rian Pratama';
+        emailInp.value = 'rian.pratama@mhs.ui.ac.id';
+        passInp.value = 'SandiKampus2025';
+        confirmInp.value = 'SandiKampus2025';
+
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        btnText.textContent = 'Membuat akun...';
+        btnArrow.classList.add('hidden');
+        btnSpinner.classList.remove('hidden');
+      }
+    }
+
+    function handleRegisterSubmit() {
+      setRegisterState('loading');
+      setTimeout(() => {
+        setRegisterState('default');
+      }, 1500);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setRegisterState('default');
+    });
+  </script>
+</body>
+</html>
